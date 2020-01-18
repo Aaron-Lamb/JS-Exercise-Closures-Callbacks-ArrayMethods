@@ -169,9 +169,6 @@ The full names appear in the array in the same order the runners appear in the `
  */
 function getFullNames(runners) {
   let names = [];
-  /**
-   * @param {{ last_name: any; first_name: any; }} runner
-   */
   runners.forEach(runner => names.push(`${runner.last_name}, ${runner.first_name}`));
   return names;
 }
@@ -225,8 +222,9 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  let sumtally = runners.reduce((a, b) => a + b.donation, 0);
+  return sumtally;
 }
 
 /////////////// CLOSURES ///////////////
@@ -239,18 +237,19 @@ function tallyUpDonations(/* CODE HERE */) {
  * Fix this function so a counter produced with it will increment correctly!
  * Usage is as follows:
  * 
- * const counter = counterMaker()
  * counter() // should return 0
  * counter() // should return 1
  * counter() // should return 2
  * etc
 */
+ const counter = counterMaker()
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
+  let count = 0;
   function counter() {
-    ++count
+    return count ++
   }
+  return counter
   // BROKEN CODE ENDS
 }
 
