@@ -208,8 +208,11 @@ runners.map(function(namecap){
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize) {
+  let shirt = runners.filter(runner => {
+    return runner.shirt_size === tShirtSize;
+  })
+  return shirt;
 }
 
 /**
